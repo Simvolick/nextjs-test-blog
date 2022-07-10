@@ -23,13 +23,13 @@ export default function Home({ allPostsData }) {
         <title>{siteTitle}</title>
       </Head>
       <container className="">
-        {/* <div className="rounded-xl w-64 h-auto mx-auto  mt-10 bg-gradient-to-r p-[6px] from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
+        <div className="rounded-xl w-64 h-auto mx-auto bg-gradient-to-r p-[6px] from-[#6EE7B7] via-[#3B82F6] to-[#9333EA]">
           <div className="flex flex-col justify-between h-full text-white rounded-lg p-1">
             <h1 className="text-center text-3xl text-white-900">
               Klim Yadrintsev
             </h1>
           </div>
-        </div> */}
+        </div>
         <section className='pt-5'>
           <p className='text-3xl'>Hey👋</p>
           <p className='text-xl'>Name is Klim 👀</p>

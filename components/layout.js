@@ -8,7 +8,7 @@ export const siteTitle = 'Next.js Blog Website';
 // add documentation for this function
 export default function Layout({ children, home }) {
   return (
-    <div className>
+    <div className="bg-gray-100 text-gray-900">
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
@@ -27,7 +27,7 @@ export default function Layout({ children, home }) {
       {/* <div className='flex flex- justify-center h-screen'> */}
       <div className='h-screen w-screen flex flex-col justify-center items-center pb-60'>
         <div className=''>
-          <header className="text-center">
+          <header className="text-center pt-20">
             {home ? (
               <>
                 <Image
