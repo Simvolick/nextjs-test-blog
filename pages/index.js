@@ -2,13 +2,17 @@ import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 
 
+
 import { getSortedPostsData } from '../lib/posts';
+
 
 import Link from 'next/link';
 import Date from '../components/date';
 
+
 export async function getStaticProps() {
-  const allPostsData = getSortedPostsData();
+  const allPostsData = await getSortedPostsData();
+// get the summary of the post and use gray-matter to parse the post metadata section
   return {
     props: {
       allPostsData,
@@ -40,12 +44,12 @@ export default function Home({ allPostsData }) {
           <p>I write about programming, life, and Product Management</p>
           {/* (This is my blog - easy to build the same one with NEXT.JS tutorial{' '}
             <a href="https://nextjs.org/learn">our Next.js tutorial</a>) */}
-          <div class="relative flex py-2 items-center">
-            <div class="flex-grow border-t border-gray-400"></div>
+          <div className="relative flex py-2 items-center">
+            <div className="flex-grow border-t border-gray-400"></div>
             <Link href='https://twitter.com/yadrintsevklim' className="">
-              <a class="flex-shrink mx-4 text-gray-400">Twitter</a>
+              <a className="flex-shrink mx-4 text-gray-400">Twitter</a>
             </Link>
-            <div class="flex-grow border-t border-gray-400"></div>
+            <div className="flex-grow border-t border-gray-400"></div>
           </div>
 
         </section>
@@ -53,7 +57,7 @@ export default function Home({ allPostsData }) {
           <h2 className="text-xl">Blog Posts:</h2>
           <p className='text-sm text-gray-400'>by date</p>
           <ul className="pt-5">
-            {allPostsData.map(({ id, date, title }) => (
+            {allPostsData.map(({ id, date, title, summary}) => (
               <li className key={id}>
                 <Link href={`/posts/${id}`} className="">
                   <a>{title}</a>
@@ -62,8 +66,13 @@ export default function Home({ allPostsData }) {
                 <p className='text-sm py-1'>
                   <Date dateString={date} />
                 </p>
-                <div class="relative flex py-2 items-center">
-                  <div class="flex-grow border-t border-gray-400"></div>
+                <div dangerouslySetInnerHTML={{ __html: summary }} />
+                <div dangerouslySetInnerHTML={{ __html: allPostsData.contentData }} />
+                {/* <p>{allPostsData.contentData}</p> */}
+                {/* <div dangerouslySetInnerHTML={{ __html: latestPostSummary }} /> */}
+                {/* <div dangerouslySetInnerHTML={{ __html: contentHtml }} /> */}
+                <div className="relative flex py-2 items-center">
+                  <div className="flex-grow border-t border-gray-400"></div>
                 </div>
               </li>
             ))}

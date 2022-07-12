@@ -1,6 +1,12 @@
 ---
 title: 'Two Forms of Pre-rendering'
 date: '2020-01-01'
+summary: 'You can use Static Generation for many types of pages, including:
+
+- Marketing pages
+- Blog posts
+- E-commerce product listings
+- Help and documentation'
 ---
 
 Next.js has two forms of pre-rendering: **Static Generation** and **Server-side Rendering**. The difference is in **when** it generates the HTML for a page.

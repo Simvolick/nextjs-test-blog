@@ -1,6 +1,7 @@
 ---
 title: 'Introduction Klim Yadrintsev'
 date: '2022-06-10'
+summary: 'You can use Static Generation for many types of pages, **including**'
 ---
 
 We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
