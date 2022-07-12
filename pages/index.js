@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
+import ReactMarkdown from 'react-markdown'
 
 
 
@@ -34,7 +35,7 @@ export default function Home({ allPostsData }) {
             </h1>
           </div>
         </div> */}
-        <section className='pt-5'>
+        <section className="pt-5">
           <p className='text-3xl'>Hey👋</p>
           <p className='text-xl'>Name is Klim 👀</p>
           <p className='text-lg'>Programmer👨‍💻Maker🤖</p>
@@ -57,6 +58,7 @@ export default function Home({ allPostsData }) {
           <h2 className="text-xl">Blog Posts:</h2>
           <p className='text-sm text-gray-400'>by date</p>
           <ul className="pt-5">
+            <div className="">
             {allPostsData.map(({ id, date, title, summary}) => (
               <li className key={id}>
                 <Link href={`/posts/${id}`} className="">
@@ -66,8 +68,9 @@ export default function Home({ allPostsData }) {
                 <p className='text-sm py-1'>
                   <Date dateString={date} />
                 </p>
-                <div dangerouslySetInnerHTML={{ __html: summary }} />
-                <div dangerouslySetInnerHTML={{ __html: allPostsData.contentData }} />
+                <ReactMarkdown children={summary} />
+                {/* <div dangerouslySetInnerHTML={{ __html: summary }} /> */}
+                {/* <div dangerouslySetInnerHTML={{ __html: allPostsData.contentData }} /> */}
                 {/* <p>{allPostsData.contentData}</p> */}
                 {/* <div dangerouslySetInnerHTML={{ __html: latestPostSummary }} /> */}
                 {/* <div dangerouslySetInnerHTML={{ __html: contentHtml }} /> */}
@@ -76,6 +79,7 @@ export default function Home({ allPostsData }) {
                 </div>
               </li>
             ))}
+            </div>
           </ul>
         </section>
       </container>
